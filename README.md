@@ -103,6 +103,37 @@ To set up the project, follow these steps:
    python -m app.populate_db
    ```
 
+## 🐳 Docker Setup
+
+The project includes Docker support with PostgreSQL and Redis.
+
+### Quick Start
+
+1. **Set up environment file**:
+
+   ```bash
+   mv env_docker.txt .env
+   ```
+
+2. **Start all services**:
+   ```bash
+   docker compose up
+   ```
+
+### Services Included
+
+- `fastapi`: Your FastAPI application (port 8000)
+- `postgres`: PostgreSQL database (port 5432)
+- `redis`: Redis server (port 6379)
+- `celery`: Celery worker for background tasks
+
+### Key Features
+
+- Automatic health checks for database and Redis
+- Persistent storage for PostgreSQL data
+- Preconfigured network for all services
+- Celery worker with gevent pool for better performance
+
 ## 📚 API Endpoints
 
 ### Authentication

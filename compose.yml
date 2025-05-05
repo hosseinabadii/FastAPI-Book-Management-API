@@ -1,0 +1,68 @@
+services:
+  web:
+    container_name: fastapi
+    build: .
+    ports:
+    - "8000:8000"
+    env_file:
+      - .env
+    networks:
+      - app-network
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  db:
+    container_name: postgres
+    image: postgres:17.4-bookworm
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: bookly
+      POSTGRES_PASSWORD: testpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - database-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    container_name: redis
+    image: redis:7.4.3-bookworm
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  celery:
+    container_name: celery
+    build: .
+    command: celery -A app.celery_tasks.celery_app worker -l info -P gevent
+    depends_on:
+      - redis
+    environment:
+      REDIS_URL: ${REDIS_URL}
+    networks:
+      - app-network
+    restart: unless-stopped
+
+volumes:
+  database-data:
+    name: database-data
+
+networks:
+  app-network:
+    name: app-network
+    driver: bridge

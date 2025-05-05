@@ -133,7 +133,7 @@ async def send_password_reset_email(request_data: PasswordResetRequest, session:
 
 
 @auth_router.get("/password-reset-confirm/{token}", response_model=PasswordResetResponse)
-async def validate_password_reset_token(_: UrlSafeTokenDep):
+async def validate_reset_password_token(_: UrlSafeTokenDep):
     return {"message": "Token is valid"}
 
 

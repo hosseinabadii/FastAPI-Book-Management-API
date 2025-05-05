@@ -21,8 +21,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: bookly
       POSTGRES_PASSWORD: testpass
-    ports:
-      - "5432:5432"
     volumes:
       - database-data:/var/lib/postgresql/data
     networks:
@@ -36,8 +34,6 @@ services:
   redis:
     container_name: redis
     image: redis:7.4.3-bookworm
-    ports:
-      - "6379:6379"
     networks:
       - app-network
     healthcheck:

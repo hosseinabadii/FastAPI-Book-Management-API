@@ -23,11 +23,13 @@ async def add_jti_to_blocklist(jti: str) -> None:
     if token_blocklist:
         try:
             await token_blocklist.set(name=jti, value="", ex=Config.REDIS_JTI_EXPIRY)
+            logger.debug(f"JTI '{jti}' added to Redis blocklist")
             return
         except ConnectionError:
             logger.error("Redis error while adding JTI")
     # Fallback logic (only runs if Redis failed or unavailable)
     REDIS_MOCK.add(jti)
+    logger.debug(f"JTI '{jti}' added to in-memory blocklist (fallback)")
 
 
 async def token_in_blocklist(jti: str) -> bool:
@@ -44,3 +46,4 @@ async def token_in_blocklist(jti: str) -> bool:
 def reset_redis_mock():
     global REDIS_MOCK
     REDIS_MOCK = set()
+    logger.info("In-memory Redis mock has been reset")

@@ -1,0 +1,15 @@
+meta {
+  name: Verify email token
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{base_url}}/auth/verify/:email_token
+  body: none
+  auth: none
+}
+
+params:path {
+  email_token: eyJlbWFpbCI6InVzZXIxQHRlc3QuY29tIn0.aBiZVw.h71AVQWSSOvrVQA0EJTALA_nPCA
+}

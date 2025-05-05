@@ -1,0 +1,15 @@
+meta {
+  name: Get a review
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/reviews/:review_uid
+  body: none
+  auth: none
+}
+
+params:path {
+  review_uid: jkl
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Update user profile
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{base_url}}/users/user-profile/:user_uid
+  body: none
+  auth: inherit
+}
+
+params:path {
+  user_uid: dsdsdvsdv
+}

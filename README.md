@@ -341,6 +341,41 @@ Comprehensive test suite using:
 
    All necessary configurations (e.g., markers, coverage settings) are defined in the `pytest.ini` file, so no additional arguments are required.
 
+## 🚀 Testing with Bruno
+
+For API testing, you can use [Bruno](https://www.usebruno.com/), a lightweight and modern API client. The repository includes Bruno collection files for testing all endpoints.
+
+### Using the Bruno Collection
+
+1. **Install Bruno**:
+
+   - Download from [Bruno's website](https://www.usebruno.com/)
+   - Available for Windows, macOS and Linux
+
+2. **Import the Collection**:
+
+   - Copy the `bruno/` folder to your Bruno workspace
+   - Or import the `.bru` files directly into Bruno
+
+3. **Environment Setup**:
+
+   - Create a `env.bru` file in Bruno
+   - Set your environment variables (base URL, tokens etc)
+   - Example:
+     ```javascript
+     {
+       "vars": {
+         "base_url": "http://localhost:8000",
+         "access_token": "your_jwt_token_here"
+       }
+     }
+     ```
+
+4. **Running Tests**:
+   - Execute requests individually or run the full collection
+   - View responses and debug easily
+   - Save responses for documentation
+
 ## 📝 License
 
 This project is licensed under the [MIT License](./LICENSE).

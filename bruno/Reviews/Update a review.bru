@@ -1,0 +1,21 @@
+meta {
+  name: Update a review
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{base_url}}/reviews/:review_uid
+  body: json
+  auth: inherit
+}
+
+params:path {
+  review_uid: cfdffe9f-3472-4514-8070-8215802483c7
+}
+
+body:json {
+  {
+      "review_text": "very5"
+  }
+}

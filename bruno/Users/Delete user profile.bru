@@ -1,0 +1,15 @@
+meta {
+  name: Delete user profile
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{base_url}}/users/user-profile/:user_uid
+  body: none
+  auth: inherit
+}
+
+params:path {
+  user_uid: sdgsdb
+}

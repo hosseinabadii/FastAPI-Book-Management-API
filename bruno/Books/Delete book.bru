@@ -1,0 +1,21 @@
+meta {
+  name: Delete book
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{base_url}}/books/:book_uid
+  body: none
+  auth: inherit
+}
+
+params:path {
+  book_uid: b267a490-7e57-4a57-bf87-2c70f0250de2
+}
+
+body:json {
+  {
+    "title": "The Art of Fiction2"
+  }
+}

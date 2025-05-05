@@ -1,0 +1,23 @@
+meta {
+  name: Create book
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_url}}/books/
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "title": "book1005",
+      "author": "me",
+      "publisher": "me",
+      "page_count": 25,
+      "language": "EN",
+      "published_date": "2025-01-01"
+  }
+  
+}

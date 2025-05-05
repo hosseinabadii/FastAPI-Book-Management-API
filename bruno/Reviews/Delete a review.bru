@@ -1,0 +1,15 @@
+meta {
+  name: Delete a review
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{base_url}}/reviews/:review_uid
+  body: none
+  auth: inherit
+}
+
+params:path {
+  review_uid: cfdffe9f-3472-4514-8070-8215802483c7
+}

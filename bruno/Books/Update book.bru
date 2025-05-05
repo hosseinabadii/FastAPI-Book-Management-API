@@ -1,0 +1,21 @@
+meta {
+  name: Update book
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{base_url}}/books/:book_uid
+  body: json
+  auth: inherit
+}
+
+params:path {
+  book_uid: ebaa97e1-677a-4af0-8a10-e1fb052bce53
+}
+
+body:json {
+  {
+    "title": "The Art of Fiction2"
+  }
+}

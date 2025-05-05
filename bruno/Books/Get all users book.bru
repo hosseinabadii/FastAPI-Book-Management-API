@@ -1,0 +1,15 @@
+meta {
+  name: Get all users book
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{base_url}}/books/user/:user_uid
+  body: none
+  auth: none
+}
+
+params:path {
+  user_uid: f4b80e19-ec28-48ad-b7f7-e6477b1bb896
+}

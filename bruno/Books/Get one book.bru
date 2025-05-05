@@ -1,0 +1,15 @@
+meta {
+  name: Get one book
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/books/:book_uid
+  body: none
+  auth: none
+}
+
+params:path {
+  book_uid: 7681b10a-316b-4d93-96a9-d76aba760280
+}

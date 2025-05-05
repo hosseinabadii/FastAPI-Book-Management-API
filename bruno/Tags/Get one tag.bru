@@ -1,0 +1,15 @@
+meta {
+  name: Get one tag
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/tags/:tag_uid
+  body: none
+  auth: none
+}
+
+params:path {
+  tag_uid: 6d634e30-9ad9-4cb6-adc6-cf41f54fc364
+}
